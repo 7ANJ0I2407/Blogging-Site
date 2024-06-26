@@ -54,7 +54,7 @@ function Add_post() {
           <h1 style={{ textAlign: "center", color: "white" }}>Add Post</h1>
           <form onSubmit={handleSubmit} className="form-container">
             <div style={{width:"100%"}}>
-              <label className="form-label">News Title</label>
+              <label className="form-label">Post Title</label>
               <input
                 type="text"
                 value={title}
@@ -63,7 +63,7 @@ function Add_post() {
               />
             </div>
             <div style={{width:"100%", margin:"5px 0px 20px"}}>
-              <label className="form-label">News Description</label>
+              <label className="form-label">Post Description</label>
               <textarea
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
