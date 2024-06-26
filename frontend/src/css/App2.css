@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Chela+One&display=swap');
+
+#root {
+  margin: 0;
+  padding: 0;
+}
+button, a{
+  cursor: pointer;
+}
+
+/* Custom scrollbar with CSS */
+::-webkit-scrollbar {
+  width: 15px;
+}
+::-webkit-scrollbar-track {
+  background: var(--boldtext);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--lighttext);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--lighttext);
+}
+
+#sign-in {
+  display: flex;
+  max-height: 100vh;
+  position: relative;
+  width: 100%;
+}
+#ad{
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+#form{
+  width: 50%;
+}
+
+.login-box {
+  /* z-index: 99; */
+  margin: auto;
+  /* margin-top: 20vh; */
+  width: 30%;
+  height: 50%;
+  border: 1.5px solid rgb(101, 109, 118);
+  border-radius: 11px;
+  background: linear-gradient(rgba(3, 15, 38, 0.3), rgba(2, 16, 44, 0.4));
+  backdrop-filter: blur(7px);
+  box-shadow: 0 0 70px rgba(118, 237, 255, 0.3);
+  padding: 20px;
+}
+
+#form {
+  height: 100vh;
+  width: 50vw;
+  background: transparent;
+  /* background: linear-gradient(#031028, #00050f); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* FOR MOBILE  */
+@media (max-width: 425px) {
+
+  #ad {
+    display: none;
+  }
+}
+
+/* FOR TABLET */
+@media (min-width: 426px) and (max-width:767px) {
+
+
+  #ad {
+    display: none;
+  }
+
+}
+
+/* FOR LAPTOP */
+@media (min-width: 950px) {
+  #signin-body{
+    background-color: white;
+  }
+
+  #top-bar-register-btn b, .register-btn b{
+    color: #00001c;
+  }
+  .top-bar{
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+  }
+  #sign-in{
+    position: relative;
+  }
+  #ad{
+    background-color: #07011c;
+    width: 50%;
+    height: 100vh;
+    flex-direction: column;
+  }
+  #form{
+    background-color: #130144a5;
+    width: 50%;
+    height: 100vh;
+  }
+  .heading-signin p{
+    color: white;
+    font-size: 80px;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: 'Chela One', cursive;
+    border-right: 2px solid white;
+    animation: cursor_animation 3s  steps(24) 2s, cursor .4s step-end infinite alternate;
+  }
+  .text-signin p{
+    color: white;
+    font-size: 20px;
+    font-family: 'Chela One', cursive;
+  }
+  .input-field-signin{
+    border-radius: 0.3rem;
+  }
+
+  .back-arrow{
+    display: none;
+  }
+
+  .login-box{
+    z-index: 99;
+    position: absolute;
+  }
+}
+
+@media screen and (max-width: 950px){
+  
+  #signin-body {
+    background: linear-gradient( #031028, #00050f);
+  }
+  .login-box{
+    background: linear-gradient( rgba(3, 15, 38, 0.3), rgba(2, 16, 44, 0.4));
+    backdrop-filter: blur(10px);
+    width: 60%;
+    height: max-content;
+  }
+  #ad{
+    display: none;
+  }
+  #sign-in{
+    width: 100%;
+  }
+  #form{
+    width: 100%;
+  }
+  .top-bar{
+    background-color: transparent;
+  }
+
+}
+.signup-btn:hover{
+  color: rgb(16, 9, 12);
+  /* border-radius: 20px 12px; */
+  border-color: rgb(216, 205, 211);
+}
+
+  
+/* @media screen and (max-width: 1300px) and (min-width: 100px){
+      #ad{
+        display: none;
+      }
+      #form{
+        width: 100%;
+      }
+      .login-box{
+        width: 60%;
+        height: 40%;
+      }
+} */
+
+@keyframes cursor_animation{
+  from{
+    width: 0%;
+  }
+  to{
+    width: 100%;
+  }
+}
+@keyframes cursor {
+  50%{
+    border-color: transparent;
+  }
+  
+}
