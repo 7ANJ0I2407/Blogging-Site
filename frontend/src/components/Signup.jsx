@@ -17,17 +17,14 @@ function Signup() {
   const [formData, setFormData] = useState({
     email: "",
     username: "",
-    scl_name: "",
     password: "",
-    agree: false,
   });
 
   const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    const val = type === "checkbox" ? checked : value;
+    const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
-      [name]: val,
+      [name]: value,
     }));
   };
 
@@ -35,7 +32,7 @@ function Signup() {
     e.preventDefault();
 
     try {
-      const response = await fetch( process.env.REACT_APP_SIGN_UP_URL, {
+      const response = await fetch(process.env.REACT_APP_SIGN_UP_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -60,11 +57,11 @@ function Signup() {
   return (
     <>
       <Header />
-      <div style={{display: "flex", justifyContent:"center", alignItems:"center", padding: "40px"}}>
+      <div style={{ display: "flex", justifyContent: "center", alignItems: "center", padding: "40px" }}>
         <div className="signup-container">
-          <h1 style={{textAlign:"center", color:"white"}}>Sign Up</h1>
+          <h1 style={{ textAlign: "center", color: "white" }}>Sign Up</h1>
           <form onSubmit={handleSubmit} className="form-container">
-            <div className="mb-3" style={{width:"80%"}}>
+            <div className="mb-3" style={{ width: "80%" }}>
               <label htmlFor="exampleInputEmail1" className="form-label">
                 Email address
               </label>
@@ -79,10 +76,10 @@ function Signup() {
                 aria-describedby="emailHelp"
               />
               <div id="emailHelp" className="form-text">
-                l'll never share your email with anyone else.
+                I'll never share your email with anyone else.
               </div>
             </div>
-            <div className="mb-3"style={{width:"80%"}}>
+            <div className="mb-3" style={{ width: "80%" }}>
               <label htmlFor="exampleInputUsername" className="form-label">
                 Username
               </label>
@@ -97,7 +94,7 @@ function Signup() {
                 aria-describedby="emailHelp"
               />
             </div>
-            <div className="mb-3"style={{width:"80%"}}>
+            <div className="mb-3" style={{ width: "80%" }}>
               <label htmlFor="exampleInputPassword1" className="form-label">
                 Password
               </label>
@@ -111,33 +108,13 @@ function Signup() {
                 onChange={handleChange}
               />
             </div>
-            <div className="mb-3 form-check">
-              <input
-                type="checkbox"
-                className="form-check-input"
-                id="exampleCheck1"
-                name="agree"
-                checked={formData.agree}
-                onChange={handleChange}
-                required
-              />
-              <label className="form-check-label" htmlFor="exampleCheck1">
-                I agree your{" "}
-                <Link className="terms-conditions-links" to="#">
-                  Terms & Conditions
-                </Link>
-              </label>
-            </div>
-            <button
-              type="submit"
-              className="btn btn-outline-secondary submit-btn-signup"
-            >
+            <button type="submit" className="btn btn-outline-secondary submit-btn-signup">
               Continue <i className="fa fa-arrow-right" aria-hidden="true"></i>
             </button>
           </form>
         </div>
       </div>
-      <Footer></Footer>
+      <Footer />
     </>
   );
 }
