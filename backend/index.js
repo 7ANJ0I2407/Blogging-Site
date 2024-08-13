@@ -6,6 +6,8 @@ const cors = require("cors");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { User, Post } = require("./schemas/DB_Schemas");
+const rateLimit = require('express-rate-limit');
+
 
 
 const app = express();
@@ -16,6 +18,15 @@ const secretKey = process.env.SECRET_KEY; //secure key in production
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
+
+const limiter = rateLimit({
+  windowMs: 1 * 60 * 1000,
+  max: 20,
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
+app.use(limiter);
 
 // Signup Route
 app.post("/sign-up", async (req, res) => {
